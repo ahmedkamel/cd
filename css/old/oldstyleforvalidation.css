@@ -1,0 +1,75 @@
+/*
+.textbox:required, .textarea:required {
+    background: #fff url(icons/asterisk3.png) no-repeat 98% center;
+}
+
+.textbox:required:focus:valid, .textarea:required:focus:valid {
+    background: #fff url(icons/valid_small.png) no-repeat 98% center;
+    
+    border: 1px solid #28921f; 
+    box-shadow: 0px 0px 8px #28921f; 
+    -moz-box-shadow: 0px 0px 8px #28921f; 
+    -webkit-box-shadow: 0px 0px 8px #28921f; 
+}
+.textbox:required:valid, .textarea:required:valid {
+    background: #fff url(icons/valid_small.png) no-repeat 98% center;
+    
+    border: 1px solid #28921f; 
+    box-shadow: 0px 0px 8px #28921f; 
+    -moz-box-shadow: 0px 0px 8px #28921f; 
+    -webkit-box-shadow: 0px 0px 8px #28921f; 
+}
+
+.textbox:required:hover, .textarea:required:hover {
+    background: #FFF9DF url(icons/asterisk3.png) no-repeat 98% center;
+}
+
+
+
+.textbox:required:focus:invalid, .textarea:required:focus:invalid {
+    background: #fff url(icons/invalid_small.png) no-repeat 98% center;
+    
+    border: 1px solid #b03535; 
+    box-shadow: 0px 0px 8px #b03535; 
+    -moz-box-shadow: 0px 0px 8px #b03535; 
+    -webkit-box-shadow: 0px 0px 8px #b03535; 
+}
+
+.textbox:required:invalid, .textarea:required:invalid {
+    background: #fff url(icons/invalid_small.png) no-repeat 98% center;
+    
+    border: 1px solid #b03535; 
+    box-shadow: 0px 0px 8px #b03535; 
+    -moz-box-shadow: 0px 0px 8px #b03535; 
+    -webkit-box-shadow: 0px 0px 8px #b03535; 
+}
+
+
+.textbox:focus, .textarea:focus {
+    background: #FFF url(icons/asterisk3.png) no-repeat 98% center;
+    
+    border: 1px solid #c4c4c4; 
+    box-shadow: 0px 0px 8px #d9d9d9; 
+    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+}
+
+.textbox.empty:invalid, .textbox[value='']{
+    
+    background: #FFF url(icons/asterisk3.png) no-repeat 98% center;
+    
+    border: 1px solid #c4c4c4; 
+    box-shadow: 0px 0px 8px #d9d9d9; 
+    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9;
+}
+
+.textbox.empty:invalid:focus, .textbox[value='']:invalid:focus{
+    
+    background: #FFF url(icons/asterisk3.png) no-repeat 98% center;
+    
+    border: 1px solid #7bc1f7; 
+    box-shadow: 0px 0px 8px #7bc1f7; 
+    -moz-box-shadow: 0px 0px 8px #7bc1f7; 
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7; 
+}*/

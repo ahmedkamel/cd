@@ -1,0 +1,218 @@
+/*
+/*form styles*/
+#msform {
+    
+    height: 800px;
+	width: 800px;
+	text-align: center;
+	position: relative;
+	clear: left;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	text-align: left;
+	
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	/*width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;*/
+	
+	width: 200px;
+	font-size: 23px;
+    font-family:Arial;
+    font-weight:normal;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid #3866a3;
+    padding: 7px 25px;
+    
+    text-shadow:1px 1px 0px #7cacde;
+    -moz-box-shadow:inset 1px 1px 0px 0px #bee2f9;
+    -webkit-box-shadow:inset 1px 1px 0px 0px #bee2f9;
+    box-shadow:inset 1px 1px 0px 0px #bee2f9;
+    font-weight:bold;
+    text-decoration:none;
+    cursor: pointer;
+    background:-webkit-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:-moz-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:-ms-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:linear-gradient(180deg, #63b8ee 5%, #468ccf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+    /*background-color:#468ccf;*/
+    color:#FFFFFF;
+    display:inline-block;
+    
+}
+#msform .action-button:hover, #msform .action-button:focus {
+background:-webkit-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background:-moz-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background:-ms-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background:linear-gradient(180deg, #468ccf 5%, #63b8ee 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
+    /*background-color:#63b8ee;*/
+}
+#msform .action-button:active {
+    position:relative;
+    top:1px;
+}
+
+/*textfields*/
+
+ #msform .textbox { 
+    border: 1px solid #c4c4c4; 
+    height: 40px; 
+    width: 90%; 
+    font-size: 18px; 
+    margin: 4px 4px 4px 4px;
+    padding: 4px 8px 4px 8px;
+    
+    border-radius: 4px; 
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px; 
+    box-shadow: 0px 0px 8px #d9d9d9; 
+    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+}
+
+
+
+//////////////////
+
+
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	text-transform: uppercase;
+	font-size: 15px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	
+    font-family:Arial;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+   
+    border-radius: 10px;
+    border: 2px solid #777;
+
+    text-shadow:1px 1px 0px #000;
+    -moz-box-shadow:inset 1px 1px 0px 0px #bee2f9;
+    -webkit-box-shadow:inset 1px 1px 0px 0px #bee2f9;
+    box-shadow:inset 1px 1px 0px 0px #bee2f9;
+    font-weight:bold;
+    text-decoration:none;
+    cursor: pointer;
+    background:-webkit-linear-gradient(90deg, #e3e3e3 5%, #888 100%);
+    background:-moz-linear-gradient(90deg, #e3e3e3 5%, #888 100%);
+    background:-ms-linear-gradient(90deg, #e3e3e3 5%, #888 100%);
+    background:linear-gradient(180deg, #e3e3e3 5%, #888 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+    /*background-color:#468ccf;*/
+    color: #FFF;
+    
+    content: counter(step);
+	counter-increment: step;
+	width: 50px;
+	line-height: 50px;
+	display: block;
+	font-size: 23px;
+    
+    
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 20px;
+	background: #e3e3e3;
+	position: absolute;
+	left: -50%;
+	top: 17.5px;
+	z-index: -1; /*put it behind the numbers*/
+	
+	
+    
+    background:-webkit-linear-gradient(90deg, #e3e3e3 5%, #888 100%);
+    background:-moz-linear-gradient(90deg, #e3e3e3 5%, #888 100%);
+    background:-ms-linear-gradient(90deg, #e3e3e3 5%, #888 100%);
+    background:linear-gradient(180deg, #e3e3e3 5%, #888 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+    
+	
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before {
+    background: #63b8ee;
+	color: white;
+	font-weight: bold;
+	
+	border: 2px solid #3866a3;
+	background:-webkit-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:-moz-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:-ms-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:linear-gradient(180deg, #63b8ee 5%, #468ccf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
+}
+#progressbar li.active:after {
+	background: #63b8ee;
+	color: white;
+	font-weight: bold;
+	
+	background:-webkit-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:-moz-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:-ms-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background:linear-gradient(180deg, #63b8ee 5%, #468ccf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
+}
+

@@ -9,8 +9,7 @@
 						<div class="header-cnt">
 							<h1 id="logo"><a href="#">Schooli</a></h1>		
 							<p>
-								<h1 style="padding-top: 8px; color:white; font-family: \'Ubuntu\', sans-serif; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your success begins here!</h1>
-								<!-- <span class="desktop">Kamello is the first and only website providing E-Learning and Educational Social Network. Powered and Developed by Menoon Inc.</span> -->
+								<h1 style="padding-top: 8px; color:white; font-family: \'Ubuntu\', sans-serif; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your success begins here!</h1>
 							</p>
 						</div>
 						<!-- end of header-cnt -->
@@ -22,9 +21,9 @@
  
 									<li><img src="css/images/slide-img-2.png" alt="" /></li>
  
-									<li><img src="css/images/slide-img-3.png" alt="" /></li>
+									<!--li><img src="css/images/slide-img-3.png" alt="" /></li-->
  
-									<li><img src="css/images/slide-img-4.png" alt="" /></li>
+									<!--li><img src="css/images/slide-img-4.png" alt="" /></li-->
  
 									<li><img src="css/images/slide-img-5.png" alt="" /></li>
 								</ul>

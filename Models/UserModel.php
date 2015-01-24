@@ -5,13 +5,26 @@ session_start();
 
 class UserModel
 {
+    static function GetResultSet($result)
+    {
+	if($result === false) return false;
+	if($result === true) return true;
+	
+	$resultSet = array();
+	while($row = mysqli_fetch_assoc($result))
+	    array_push($resultSet, $row);
+	
+	if(!count($resultSet)) return false;
+	
+	return $resultSet;
+    }
     static function PerformQuery($query)
     {
 	require ("Credentials.php");
 	$connection  = mysqli_connect($host, $username, $password, $database) or die(mysqli_error());
 	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 	mysqli_close($connection);
-	return $result;
+	return UserModel::GetResultSet($result);
     }
     static function InsertUser(UserEntity $user)
     {
@@ -26,24 +39,7 @@ class UserModel
     static function SelectUser($user) // checks for matching username and password
     {
 	$query  = 'select * from user where email="'.$user->email.'" and password="'.$user->password.'";';
-	$result = UserModel::PerformQuery($query);
-
-	if($result == null) return 0;
-
-	while($row= mysqli_fetch_array($result))
-	{
-	    session_start();
-	    $_SESSION['user_id'] = $row['id'];
-	    $_SESSION['user_firstname'] = $row['firstname'];
-	    $_SESSION['user_lastname'] = $row['lastname'];
-	    $_SESSION['user_email'] = $row['email'];
-	    $_SESSION['user_gender'] = $row['gender'];
-	    $_SESSION['user_birthday'] = $row['birthday'];
-	    $_SESSION['user_birthmonth'] = $row['birthmonth'];
-	    $_SESSION['user_birthyear'] = $row['birthyear'];
-	    return 1;
-	}
-	return 0;
+	return UserModel::PerformQuery($query);
     }
     static function UpdateUser(UserEntity $user){
 	$query='update user set firstname="'.$user->firstname.'" ,lastname="'.$user->lastname.'" ,password="'.$user->password.'" where email="'.$user->email.'"';

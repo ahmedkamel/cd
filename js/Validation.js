@@ -70,7 +70,7 @@ function checkPasswordStrength(txt)
             clearTextboxClasses(x);
             x.className += " moderatePassword";
         }
-        if(strength == 4)
+        if(strength >= 4)
         {
             clearTextboxClasses(x);
             x.className += " strongPassword";

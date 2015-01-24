@@ -2,12 +2,6 @@
 
 require ("../Models/UserModel.php");
 
-session_start();
-$EMPTY = 1;
-$WRONG = 2;
-$USED = 3;
-$OK = 4;
-
 if(isset($_GET['functionName']))
 {
     $functionName = $_GET['functionName'];
@@ -21,47 +15,82 @@ else
     else header("Location:../FrontPage.php");
 }
 
+$EMPTY = 1;
+$WRONG = 2;
+$USED = 3;
+$OK = 4;
+
+function ValidateSignUpForm()
+{
+    global $OK;
+    global $EMPTY;
+    
+    $firstname_flag = $OK;
+    $lastname_flag = $OK;
+    $email_flag = $OK;
+    $password_flag = $OK;
+    $birthday_flag = $OK;
+    $birthmonth_flag = $OK;
+    $birthyear_flag = $OK;
+    $gender_flag = $OK;
+
+    if(!isset($_POST["firstname"])) $firstname_flag = $EMPTY;
+    if(!isset($_POST["lastname"])) $lastname_flag = $EMPTY;
+    if(!isset($_POST["email"])) $email_flag = $EMPTY;
+    if(!isset($_POST["password"])) $password_flag = $EMPTY;
+    if(!isset($_POST["birthday"])) $birthday_flag = $EMPTY;
+    if(!isset($_POST["birthmonth"])) $birthmonth_flag = $EMPTY;
+    if(!isset($_POST["birthyear"])) $birthyear_flag = $EMPTY;
+    if(!isset($_POST["gender"])) $gender_flag = $EMPTY;
+
+    if($firstname_flag == $OK && $lastname_flag == $OK && $email_flag == $OK && $password_flag == $OK && $birthday_flag == $OK && $birthmonth_flag == $OK && $birthyear_flag == $OK && $gender_flag == $OK)
+	return true;
+    
+    return false;
+}
+
+function ValidateUpdateProfileForm()
+{
+    global $OK;
+    global $EMPTY;
+    
+    $firstname_flag = $OK;
+    $lastname_flag = $OK;
+    $email_flag = $OK;
+    $password_flag = $OK;
+
+    if(!isset($_POST["firstname"])) $firstname_flag = $EMPTY;
+    if(!isset($_POST["lastname"])) $lastname_flag = $EMPTY;
+    if(!isset($_POST["email"])) $email_flag = $EMPTY;
+    if(!isset($_POST["passwordnew"])) $password_flag = $EMPTY;
+    
+    if($firstname_flag == $OK && $lastname_flag == $OK && $email_flag == $OK && $password_flag == $OK)
+	return true;
+    return false;
+}
+
 class UserController {
     static function SignUp()
     {
-	$firstname_flag = $OK;
-	$lastname_flag = $OK;
-	$email_flag = $OK;
-	$password_flag = $OK;
-	$birthday_flag = $OK;
-	$birthmonth_flag = $OK;
-	$birthyear_flag = $OK;
-	$gender_flag = $OK;
-
-	if(!isset($_POST["firstname"])){$firstname_flag = $EMPTY;}
-	if(!isset($_POST["lastname"])){$lastname_flag = $EMPTY;}
-	if(!isset($_POST["email"])){$email_flag = $EMPTY;}
-	if(!isset($_POST["password"])){$password_flag = $EMPTY;}
-	if(!isset($_POST["birthday"])){$birthday_flag = $EMPTY;}
-	if(!isset($_POST["birthmonth"])){$birthmonth_flag = $EMPTY;}
-	if(!isset($_POST["birthyear"])){$birthyear_flag = $EMPTY;}
-	if(!isset($_POST["gender"])){$gender_flag = $EMPTY;}
-
-
-	if($firstname_flag == $OK && $lastname_flag == $OK && $email_flag == $OK && $password_flag == $OK && $birthday_flag == $OK && $birthmonth_flag == $OK && $birthyear_flag == $OK && $gender_flag == $OK)
+	if(ValidateSignUpForm())
 	{
 	    extract($_POST);
 	    $user = new UserEntity(-1, $firstname, $lastname, $email, $password, $birthday, $birthmonth, $birthyear, $gender);
-            if (UserModel::SelectUser($user) == false)
+            if (UserModel::SelectUser($user) === false)
             {
-                if(UserModel::InsertUser($user) == true)
+                if(UserModel::InsertUser($user) === true)
                 {
                     header("Location: ../RegistrationComplete.php");
                 }
                 else
                 {
-                    $_SESSION['error_message'] = "Sorry, something went wrong.";
+                    $_SESSION['error_tip'] = "Sorry, something went wrong.";
                     header("Location: ../SignUp.php");
                 }
             }
             else
             {
-                $_SESSION['error_tip'] = "This email address is already registered.";
+                $_SESSION['error_message'] = "This email address is already registered.";
                 header("Location: ../SignUp.php");
             }
 	}
@@ -73,17 +102,7 @@ class UserController {
     }
     static function UpdateProfile()
     {
-	$firstname_flag = $OK;
-	$lastname_flag = $OK;
-	$email_flag = $OK;
-	$password_flag = $OK;
-
-	if(!isset($_POST["firstname"])){$firstname_flag = $EMPTY;}
-	if(!isset($_POST["lastname"])){$lastname_flag = $EMPTY;}
-	if(!isset($_POST["email"])){$email_flag = $EMPTY;}
-	if(!isset($_POST["passwordnew"])){$password_flag = $EMPTY;}
-
-	if($firstname_flag == $OK && $lastname_flag == $OK && $email_flag == $OK && $password_flag == $OK )
+	if(ValidateUpdateProfileForm() === true)
 	{
 	    extract($_POST);
 	    $user = new UserEntity(-1, $firstname, $lastname, $email, $passwordnew, "", "", "", "");
@@ -117,9 +136,20 @@ class UserController {
 	{
 	    extract($_POST);
 	    $user = new UserEntity(-1, "", "", $email, $password, "", "", "", "");
-
-	    if(UserModel::SelectUser($user) == true)
+	    $resultUser = UserModel::SelectUser($user);
+	    
+	    if($resultUser != false)
+	    {
+		$_SESSION['user_id'] = $resultUser[0]['id'];
+		$_SESSION['user_firstname'] = $resultUser[0]['firstname'];
+		$_SESSION['user_lastname'] = $resultUser[0]['lastname'];
+		$_SESSION['user_email'] = $resultUser[0]['email'];
+		$_SESSION['user_gender'] = $resultUser[0]['gender'];
+		$_SESSION['user_birthday'] = $resultUser[0]['birthday'];
+		$_SESSION['user_birthmonth'] = $resultUser[0]['birthmonth'];
+		$_SESSION['user_birthyear'] = $resultUser[0]['birthyear'];
 		header("Location: ../Home.php");
+	    }
 	    else
 	    {
 		$_SESSION['error_message'] = "Wrong email or password.";

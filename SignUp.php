@@ -49,7 +49,9 @@
 		<br/>
 
 		<div style="padding-top: 10px; padding-left: 10px; font-size:11px; clear: both; align:left; width:100%"><p>By clicking Sign Up, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</p></div>
-
+		
+		<div align="Center"><label style="color:red; font-weight:bold; font-size:15px">'.$error_message.'</label></div>
+		<br/>
 		<div align="center"><input value="Sign Up" type="submit" name="signupBTN" class="button" id="submitBTN"/></div>
 	    </form>
 	</div>

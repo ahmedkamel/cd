@@ -22,6 +22,6 @@
 	$_SESSION['error_tip'] = "";
 	$_SESSION['error_message'] = "";
     }
-    include 'Template/MainTemplate.html';
+    include 'Template/MainTemplate.php';
     
 ?>

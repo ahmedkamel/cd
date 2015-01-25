@@ -36,7 +36,7 @@
 				</div>
 				<!-- end of shell -->	
 			</header><br/><br/><br/>';
-    
+    $topNav = "";
     
     include 'Template/MainTemplate.html';
 ?>

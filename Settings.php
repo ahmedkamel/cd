@@ -44,5 +44,5 @@
 	$_SESSION['error_message'] = "";
     }
 
-include 'Template/MainTemplate.html';
+include 'Template/MainTemplate.php';
 ?>

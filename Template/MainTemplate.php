@@ -23,7 +23,7 @@
 				<li id="homeLINK"><span><a href="Home.php">Home</a></span></li>
 				<li id="profileLINK"><span><a href="Profile.php">Profile</a></span></li>
 				<li id="settingsLINK"><span><a href="Settings.php">Settings</a></span></li>
-				<li id="contactusLINK"><span><a href="ContactUs.php">Contact Us</a></span></li>
+				<!--li id="contactusLINK"><span><a href="ContactUs.php">Contact Us</a></span></li-->
 			</ul>
 		</div>
 	</nav>';

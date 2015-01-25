@@ -8,7 +8,17 @@
     
     $title = "Profile";
     $content_title = "Profile";
-    $content = '<div id="content" class="clearfix">
+    $content = '
+     <script>var LINK = "profileLINK";</script>
+    ';
+    
+    $_SESSION['error_tip'] = "";
+    $_SESSION['error_message'] = "";
+    include 'Template/MainTemplate.php';
+?>
+
+
+<!--div id="content" class="clearfix">
 	   <section id="left">
 		   <div id="userStats" class="clearfix">
 			   <div class="pic">
@@ -89,11 +99,4 @@
 	    </section>
 	</div>
 
-     <link rel="stylesheet" href="css/Profile/style.css" type="text/css"/>
-     <script>var LINK = "profileLINK";</script>
-    ';
-    
-    $_SESSION['error_tip'] = "";
-    $_SESSION['error_message'] = "";
-    include 'Template/MainTemplate.php';
-?>
+     <link rel="stylesheet" href="css/Profile/style.css" type="text/css"/-->

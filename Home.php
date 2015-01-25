@@ -13,8 +13,8 @@
 	if(isset($_SESSION['error_message']) == true)$error_message = $_SESSION['error_message'];
 
 	$title = "Home";
-	$content_title = "Welcome back ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname']."!";
-	$content = 'We have been waiting for you since you last visited! :)
+	$content_title = "Coming Soon!";//"Welcome back ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname']."!";
+	$content = '
 
 	<script>var LINK = "homeLINK";</script>
 	';

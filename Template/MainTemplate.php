@@ -7,7 +7,7 @@
 	$topNav = '
 	<nav class="top-nav">
 		<div class="logoPanel">
-		    <img src="./css/images/logo.png" style="float: left; width: 260px; height: 80px; margin-left: 150px; margin-top: -28px;">
+		    <a href="Home.php"><img src="./css/images/logo.png" style="float: left; width: 260px; height: 80px; margin-left: 150px; margin-top: -28px;"></a>
 		    <input value="" placeholder="Search for anything through the site." class="textbox empty" type="text" name="search" id="search" style="float: left; margin-top:10px; width:30%;"/>
 		    <div style="font-size: 16px; font-weight: bold; margin-top:25px; margin-right:160px; float:right;">
 			<a href="Profile.php">'.$_SESSION["user_firstname"].' '.$_SESSION["user_lastname"].'</a>

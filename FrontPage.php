@@ -20,9 +20,9 @@
 		<h2 align="center" style="font-size: 36px; font-weight: bold;">Sign In</h2>
 		<h3 align="center" style="color:#636363; font-size:20px;">Members only!</h3>
 		<br/>
-		<input value="" placeholder="Email" class="textbox empty" type="text" name="email" id="email" required />
+		<input value="" placeholder="Email" class="textbox empty" type="text" name="email" id="emailin" required />
 		</br>
-		<input value="" type="password" placeholder="Password" class="textbox empty" id="password" name="password" required/>
+		<input value="" type="password" placeholder="Password" class="textbox empty" id="passwordin" name="password" required/>
 		</br>
 		<label style="color:red; font-weight:bold; font-size:15px">'.$error_message.'</label>
 		</br>
@@ -40,13 +40,13 @@
 
 		<br/>
 
-		<input value="" placeholder="First Name" class="textbox empty" type="text" name="firstname" id="firstname" oninput="checkNameValidity(\'firstname\', \'First Name\')" style="width:41.3%;" required />
+		<input value="" placeholder="First Name" class="textbox empty" type="text" name="firstname" id="firstname" oninput="checkNameValidity(\'firstname\', \'First Name\')" style="width:41.3%;" />
 
-		<input value="" placeholder="Last Name" class="textbox empty" type="text" name="lastname" id="lastname" oninput="checkNameValidity(\'lastname\', \'Last Name\')" style="width:41.3%;"  required />
+		<input value="" placeholder="Last Name" class="textbox empty" type="text" name="lastname" id="lastname" oninput="checkNameValidity(\'lastname\', \'Last Name\')" style="width:41.3%;" />
 
-		<input value="" placeholder="Email" class="textbox empty" type="text" name="email" id="email" oninput="checkEmailValidity(\'email\')"  required />
-		<input value="" placeholder="Re-enter Email" class="textbox empty" type="text" name="emailagain" id="emailagain" oninput="checkMatch(\'emailagain\', \'email\')" required />
-		<input value="" type="password" placeholder="New Password" class="textbox empty" type="text" name="password" id="password" oninput="checkPasswordStrength(\'password\')" required />
+		<input value="" placeholder="Email" class="textbox empty" type="text" name="email" id="email" oninput="checkEmailValidity(\'email\')" />
+		<input value="" placeholder="Re-enter Email" class="textbox empty" type="text" name="emailagain" id="emailagain" oninput="checkMatch(\'emailagain\', \'email\')" />
+		<input value="" type="password" placeholder="New Password" class="textbox empty" type="text" name="password" id="password" oninput="checkPasswordStrength(\'password\')" />
 
 		<h3 align="left" style="margin-left: 5px; margin-top: 10px;color:#636363; font-size:20px;">Birthday</h3>
 		<select name="birthday" id="day" class="dropdown" required><option selected="1">Day</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>

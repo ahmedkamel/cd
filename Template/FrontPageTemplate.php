@@ -7,7 +7,7 @@
 					<div class="header-inner">
 						<!-- header-cnt -->
 						<div class="header-cnt">
-							<h1 id="logo"><a href="#">Schooli</a></h1>		
+							<h1 id="logo"><a href="Home.php">Coding Door</a></h1>		
 							<p>
 								<h1 style="padding-top: 8px; color:white; font-family: \'Ubuntu\', sans-serif; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your success begins here!</h1>
 							</p>

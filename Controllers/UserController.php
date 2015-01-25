@@ -106,7 +106,7 @@ class UserController {
 	if(ValidateUpdateProfileForm() === true)
 	{
 	    extract($_POST);
-	    $user = new UserEntity(-1, $firstname, $lastname, $email, $passwordnew, "", "", "", "");
+	    $user = new UserEntity(-1, $firstname, $lastname, $email, md5($passwordnew), "", "", "", "");
 
 	    if(UserModel::UpdateUser($user) == true)
 	    {

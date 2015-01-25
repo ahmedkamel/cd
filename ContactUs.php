@@ -18,10 +18,19 @@
 		<form action="Controllers/UserController.php?functionName=SendFeedback" method="post">
 			<h3 >Your message will be reviewed as soon as possible!</h3>
 			
-			<div class="radioGroup">
-				<input type="radio" name="messagetype" id="bug_check" value="reoprt" onChange="radioChange()"/> Bug Report
-				<input type="radio" name="messagetype" id="feedback_check" value="feedback" onChange="radioChange()"/> Feedback
-				<input type="radio" name="messagetype" id="other_check" value="other" onChange="radioChange()"/> Other
+			<div style="margin-left:6px;">
+			    <div style="margin-top: 10px;"  class="radioGroup">
+				<input type="radio" name="gender" value="1" id="bugreport" required/>
+				<label for="bugreport" style="padding-left:5px;" class="radio">Bug Report</label>
+			    </div>
+			    <div style="margin-top: 10px;" class="radioGroup">
+				<input type="radio" name="gender" value="2" id="feedback" required />
+				<label for="feedback" style="padding-left:5px;" class="radio">Feedback</label>
+			    </div>
+			    <div style="margin-top: 10px;" class="radioGroup">
+				<input type="radio" name="gender" value="3" id="other" required />
+				<label for="other" style="padding-left:5px;" class="radio">Other</label>
+			    </div>
 			</div>
 
 			<input value="" placeholder="Name" class="textbox empty" type="text" name="firstname" id="firstname" oninput="checkNameValidity(\'firstname\', \'First Name\')" style="width:42%;" required />

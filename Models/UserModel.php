@@ -47,11 +47,22 @@ class UserModel
 	}
 	return $query.' and';
     }
+    static function addSuffixUpdate($query)
+    {
+	global $first;
+	if($first)
+	{
+	    $first = false;
+	    return $query.' set';
+	}
+	return $query.', ';
+    }
     static function SelectUser($user) // checks for matching username and password
     {
 	global $first;
 	$first = true;
 	$query  = 'select * from user';
+	if($user->id != -1)$query = UserModel::addSuffix($query).' id="'.$user->id.'"';
 	if($user->firstname != -1)$query = UserModel::addSuffix($query).' firstname="'.$user->firstname.'"';
 	if($user->lastname != -1) $query = UserModel::addSuffix($query).' lastname="'.$user->lastname.'"';
 	if($user->email != -1) $query = UserModel::addSuffix($query).' email="'.$user->email.'"';
@@ -63,7 +74,18 @@ class UserModel
 	return UserModel::PerformQuery($query);
     }
     static function UpdateUser(UserEntity $user){
-	$query='update user set firstname="'.$user->firstname.'" ,lastname="'.$user->lastname.'" ,password="'.$user->password.'" where email="'.$user->email.'"';
+	global $first;
+	$first = true;
+	$query = 'update user';
+	if($user->firstname != -1)$query = UserModel::addSuffixUpdate($query).' firstname="'.$user->firstname.'"';
+	if($user->lastname != -1) $query = UserModel::addSuffixUpdate($query).' lastname="'.$user->lastname.'"';
+	if($user->email != -1) $query = UserModel::addSuffixUpdate($query).' email="'.$user->email.'"';
+	if($user->password != -1) $query = UserModel::addSuffixUpdate($query).' password="'.$user->password.'"';
+	if($user->birthday != -1) $query = UserModel::addSuffixUpdate($query).' birthday="'.$user->birthday.'"';
+	if($user->birthmonth != -1) $query = UserModel::addSuffixUpdate($query).' birthmonth="'.$user->birthmonth.'"';
+	if($user->birthyear != -1) $query = UserModel::addSuffixUpdate($query).' birthyear="'.$user->birthyear.'"';
+	if($user->gender != -1) $query = UserModel::addSuffixUpdate($query).' gender="'.$user->gender.'"';
+	$query = $query.' where id = '.$_SESSION['user_id'];
 	return UserModel::PerformQuery($query);
     }
 }

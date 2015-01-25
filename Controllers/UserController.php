@@ -106,10 +106,17 @@ class UserController {
 	if(ValidateUpdateProfileForm() === true)
 	{
 	    extract($_POST);
-	    $user = new UserEntity(-1, $firstname, $lastname, $email, md5($passwordnew), "", "", "", "");
+	    $user = new UserEntity(-1, $firstname, $lastname, $email, md5($passwordnew), $birthday, $birthmonth, $birthyear, $gender);
 
 	    if(UserModel::UpdateUser($user) == true)
 	    {
+		$_SESSION['user_firstname'] = $firstname;
+		$_SESSION['user_lastname'] = $lastname;
+		$_SESSION['user_email'] = $email;
+		$_SESSION['user_gender'] = $gender;
+		$_SESSION['user_birthday'] = $birthday;
+		$_SESSION['user_birthmonth'] = $birthmonth;
+		$_SESSION['user_birthyear'] = $birthyear;
 		$_SESSION['error_tip'] = 'Your profile has been updated successfully.';
 		header("Location: ../Profile.php");
 	    }

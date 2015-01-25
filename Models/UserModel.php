@@ -2,6 +2,7 @@
 
 require ("../Entities/UserEntity.php");
 session_start();
+$first = false;
 
 class UserModel
 {
@@ -22,7 +23,7 @@ class UserModel
     {
 	require ("Credentials.php");
 	$connection  = mysqli_connect($host, $username, $password, $database) or die(mysqli_error());
-	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+	$result = mysqli_query($connection, $query) or die($query.mysqli_error($connection));
 	mysqli_close($connection);
 	return UserModel::GetResultSet($result);
     }
@@ -36,9 +37,29 @@ class UserModel
 	
 	return UserModel::PerformQuery($query);
     }
+    static function addSuffix($query)
+    {
+	global $first;
+	if($first)
+	{
+	    $first = false;
+	    return $query.' where';
+	}
+	return $query.' and';
+    }
     static function SelectUser($user) // checks for matching username and password
     {
-	$query  = 'select * from user where email="'.$user->email.'" and password="'.$user->password.'";';
+	global $first;
+	$first = true;
+	$query  = 'select * from user';
+	if($user->firstname != -1)$query = UserModel::addSuffix($query).' firstname="'.$user->firstname.'"';
+	if($user->lastname != -1) $query = UserModel::addSuffix($query).' lastname="'.$user->lastname.'"';
+	if($user->email != -1) $query = UserModel::addSuffix($query).' email="'.$user->email.'"';
+	if($user->password != -1) $query = UserModel::addSuffix($query).' password="'.$user->password.'"';
+	if($user->birthday != -1) $query = UserModel::addSuffix($query).' birthday="'.$user->birthday.'"';
+	if($user->birthmonth != -1) $query = UserModel::addSuffix($query).' birthmonth="'.$user->birthmonth.'"';
+	if($user->birthyear != -1) $query = UserModel::addSuffix($query).' birthyear="'.$user->birthyear.'"';
+	if($user->gender != -1) $query = UserModel::addSuffix($query).' gender="'.$user->gender.'"';
 	return UserModel::PerformQuery($query);
     }
     static function UpdateUser(UserEntity $user){

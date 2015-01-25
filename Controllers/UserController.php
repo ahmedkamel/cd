@@ -75,8 +75,9 @@ class UserController {
 	if(ValidateSignUpForm())
 	{
 	    extract($_POST);
-	    $user = new UserEntity(-1, $firstname, $lastname, $email, $password, $birthday, $birthmonth, $birthyear, $gender);
-            if (UserModel::SelectUser($user) === false)
+	    $user = new UserEntity(-1, $firstname, $lastname, $email, md5($password), $birthday, $birthmonth, $birthyear, $gender);
+            $userEmail = new UserEntity(-1, -1, -1, $email, -1, -1, -1, -1, -1);
+	    if (UserModel::SelectUser($userEmail) === false)
             {
                 if(UserModel::InsertUser($user) === true)
                 {
@@ -126,6 +127,9 @@ class UserController {
     }
     static function SignIn()
     {
+	global $OK;
+	global $EMPTY;
+	
 	$email_flag = $OK;
 	$password_flag = $OK;
 
@@ -135,7 +139,7 @@ class UserController {
 	if($email_flag == $OK && $password_flag == $OK)
 	{
 	    extract($_POST);
-	    $user = new UserEntity(-1, "", "", $email, $password, "", "", "", "");
+	    $user = new UserEntity(-1, -1, -1, $email, md5($password), -1, -1, -1, -1);
 	    $resultUser = UserModel::SelectUser($user);
 	    
 	    if($resultUser != false)

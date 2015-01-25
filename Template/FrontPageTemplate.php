@@ -19,13 +19,13 @@
 								<ul class="slides">
 									<li><img src="css/images/slide-img-1.png" alt="" /></li>
  
-									<li><img src="css/images/slide-img-2.png" alt="" /></li>
+									<!--li><img src="css/images/slide-img-2.png" alt="" /></li-->
  
 									<!--li><img src="css/images/slide-img-3.png" alt="" /></li-->
  
 									<!--li><img src="css/images/slide-img-4.png" alt="" /></li-->
  
-									<li><img src="css/images/slide-img-5.png" alt="" /></li>
+									<!--li><img src="css/images/slide-img-5.png" alt="" /></li-->
 								</ul>
 							</div>
 						</div>

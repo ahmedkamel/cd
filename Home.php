@@ -13,7 +13,7 @@
 	if(isset($_SESSION['error_message']) == true)$error_message = $_SESSION['error_message'];
 
 	$title = "Home";
-	$content_title = "Under Construction";//"Welcome back ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname']."!";
+	$content_title = "Under Construction ...";//"Welcome back ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname']."!";
 	$content = '
 	    
 	<div align="center">

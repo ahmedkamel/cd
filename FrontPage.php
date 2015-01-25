@@ -25,7 +25,7 @@
 		<input value="" type="password" placeholder="Password" class="textbox empty" id="password" name="password" required/>
 		</br>
 		<label style="color:red; font-weight:bold; font-size:15px">'.$error_message.'</label>
-		</br></br>
+		</br>
 		<div align="center"><input value="Sign In" type="submit" class="button"/></div>
 	    </form>
 	</div>

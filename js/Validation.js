@@ -177,7 +177,6 @@ function checkPhoneValidity(txt)
 }
 function checkContactEnable(){
     var email = document.getElementById('email');
-    var name = document.getElementById('name');
     var subject = document.getElementById('subject');
     var message = document.getElementById('message');
     var bugreport = document.getElementById('bugreport');
@@ -185,8 +184,8 @@ function checkContactEnable(){
     var other = document.getElementById('other');
     var send = document.getElementById('submit');
     submit.disabled = true;
-    if (email.value != "" && message.value != "" && (bugreport.checked || feedback.checked) && checkEmailValidity('email')) submit.disabled = false;
-    if (email.value != "" && message.value != "" && (other.checked && subject.value != "") ) submit.disabled = false;
+    if (message.value != "" && (bugreport.checked || feedback.checked) && checkEmailValidity('email')) submit.disabled = false;
+    if (message.value != "" && other.checked && subject.value != "" && checkEmailValidity('email')) submit.disabled = false;
 }
 /*
 function init()

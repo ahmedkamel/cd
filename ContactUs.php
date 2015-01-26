@@ -28,7 +28,7 @@
 				<label for="feedback" style="padding-left:5px;" class="radio">Feedback</label>
 			    </div>
 			    <div style="margin-top: 10px;" class="radioGroup">
-				<input type="radio" name="messagetype" value="3" id="other" onchange="checkContactEnable(); radioChange();" required />
+				<input type="radio" name="messagetype" value="3" id="other" onchange="radioChange(); checkContactEnable()" required />
 				<label for="other" style="padding-left:5px;" class="radio">Other</label>
 			    </div>
 			</div>

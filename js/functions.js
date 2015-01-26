@@ -1,3 +1,4 @@
+
 $(function() {
 	$(document).on('focusin', '.field, textarea', function() {
 		if(this.title==this.value) {
@@ -23,6 +24,14 @@ $(function() {
 		return false;
 	})
 });
+function radioChange(){
+	var div = document.getElementById("subject_div");
+	var other = document.getElementById("other");
+	var otherText = '<input value="" placeholder="Subject" class="textbox empty" type="text" name="subject" id="subject" style="width:42%;" oninput="checkContactEnable()" required />';
+	if (other.checked) div.innerHTML = otherText;
+	else div.innerHTML = '';
+	
+}
 
 $(window).load(function() {
 	$('.flexslider').flexslider({

@@ -109,18 +109,21 @@ function checkEmailValidity(txt)
         x.className += " empty";
         
         x.setCustomValidity('You must fill this field.');
+        return false;
     }
     else if(/[A-Z0-9a-z]+@[A-Z0-9a-z]+\.[A-Z0-9a-z]+/.test(x.value))
     {
         clearTextboxClasses(x);
         x.className += " xvalid";
         x.setCustomValidity('');
+        return true;
     }
     else
     {
         clearTextboxClasses(x);
         x.className += " xinvalid";
         x.setCustomValidity('Email format is incorrect.');
+        return false;
     }
 }
 function checkMatch(txt, txt2)
@@ -171,6 +174,19 @@ function checkPhoneValidity(txt)
         x.className += " xinvalid";
         x.setCustomValidity(label + ' Invalid Number!');
     }
+}
+function checkContactEnable(){
+    var email = document.getElementById('email');
+    var name = document.getElementById('name');
+    var subject = document.getElementById('subject');
+    var message = document.getElementById('message');
+    var bugreport = document.getElementById('bugreport');
+    var feedback = document.getElementById('feedback');
+    var other = document.getElementById('other');
+    var send = document.getElementById('submit');
+    submit.disabled = true;
+    if (email.value != "" && message.value != "" && (bugreport.checked || feedback.checked) && checkEmailValidity('email')) submit.disabled = false;
+    if (email.value != "" && message.value != "" && (other.checked && subject.value != "") ) submit.disabled = false;
 }
 /*
 function init()

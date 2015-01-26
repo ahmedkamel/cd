@@ -32,6 +32,15 @@
 	    <div style="padding-top:13px;"><p>Notice that this process must be done by school owner or director as it will need school verification and payements for premium accounts.</p></div>
 	    <div align="center"><button class="button" onclick="location.href=\'SchoolRegistration.php\';">Register School</button></div-->
 	</div>
+	
+<label style="font: normal normal normal 65px/1.4em avenida-w01,avenida-w02,fantasy; color: #CFD0D1;">Under Construction!</label>
+
+<iframe style="width:100%; height:100%;" id="me">OPC Calendar will appear here!</iframe>
+
+<a href="#" onclick="document.getElementById(\'me\').src=\'Panels/OPCCalendar.html\';">Click</a>
+ 
+ 
+
 
 	<script>var LINK = "homeLINK";</script>
 	';

@@ -9,8 +9,8 @@
 	if(isset($_SESSION['error_tip']) == 1)$error_tip = $_SESSION['error_tip'];
 	if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
 
-	$title = "Contact us";
-	$content_title = "";
+	$title = "Contact Us";
+	$content_title = "Contact Us";
 	$content = 
 	'
 

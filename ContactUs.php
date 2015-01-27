@@ -8,9 +8,18 @@
 	
 	if(isset($_SESSION['error_tip']) == 1)$error_tip = $_SESSION['error_tip'];
 	if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
+<<<<<<< Updated upstream
 
 	$title = "Contact Us";
 	$content_title = "Contact Us";
+=======
+	$email_content = "";
+	if (isset($_SESSION["user_email"])){
+		$email_content = $_SESSION['user_email'];
+	}
+	$title = "Contact us";
+	$content_title = "";
+>>>>>>> Stashed changes
 	$content = 
 	'
 
@@ -35,7 +44,7 @@
 
 			<input value="" placeholder="Name" class="textbox empty" type="text" name="name" id="name" oninput="checkContactEnable()" style="width:42%;" required />
 			
-			<input value="" placeholder="Email" class="textbox empty" type="text" name="email" id="email" oninput="checkContactEnable(); checkEmailValidity(\'email\')"  required />
+			<input value="'.$email_content.'" placeholder="Email" class="textbox empty" type="text" name="email" id="email" oninput="checkContactEnable(); checkEmailValidity(\'email\')"  required />
 		
 			<div id="subject_div">
 			</div>

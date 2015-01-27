@@ -4,7 +4,7 @@
 
     if(!isset($_SESSION['user_id']))
     {
-        $_SESSION['error_tip'] = 'You should log in to access this page!';
+        $_SESSION['error_tip'] = 'You should login to access this page';
         header("Location: SignIn.php");
     }
     else
@@ -15,8 +15,8 @@
     if(isset($_SESSION['error_tip']) == 1)$error_tip = $_SESSION['error_tip'];
     if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
     
-    $title = "Home Page";
-    $content_title = "";
+    $title = "New Tutorial";
+    $content_title = "New Tutorial";
     $content = '
 
         <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>

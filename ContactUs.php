@@ -10,8 +10,8 @@
 	if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
 
 	$email_content = "";
-	if (isset($_SESSION["user_email"])){
-		$email_content = $_SESSION['user_email'];
+	if (!isset($_SESSION["user_email"])){
+		$email_content = '<input value="" placeholder="Email" class="textbox empty" type="text" name="email" id="email" oninput="checkContactEnable(); checkEmailValidity(\'email\')"  required />';
 	}
 	$title = "Contact us";
 	$content_title = "";
@@ -37,13 +37,10 @@
 				<label for="other" style="padding-left:5px;" class="radio">Other</label>
 			    </div>
 			</div>
-
-			<input value="" placeholder="Name" class="textbox empty" type="text" name="name" id="name" oninput="checkContactEnable()" style="width:42%;" required />
-			
-			<input value="'.$email_content.'" placeholder="Email" class="textbox empty" type="text" name="email" id="email" oninput="checkContactEnable(); checkEmailValidity(\'email\')"  required />
-		
 			<div id="subject_div">
 			</div>
+			
+			'.$email_content.'
 			
 			<textarea type="textarea" name="message" class="textarea" style="width:100%; height:400px; float:left" id="message" oninput="checkContactEnable()" required></textarea>
 			<input value="Send" type="submit" name="button" class="button" id="submit" disabled/>

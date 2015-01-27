@@ -1,7 +1,6 @@
 
 <?php
-    session_start();
-    
+
     if(isset($_SESSION['user_id']))
     {
 	$_SESSION['error_tip'] = 'You cannot access this page, as you are already logged in!';

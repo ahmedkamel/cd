@@ -5,7 +5,7 @@
 	session_start();
 	$error_tip = "";
 	$error_message = "";
-	$header = "";
+	
 	if(isset($_SESSION['error_tip']) == 1)$error_tip = $_SESSION['error_tip'];
 	if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
 
@@ -46,7 +46,7 @@
 		</form>
 	    </div>
 	    <script src="js/Validation.js" type="text/javascript"></script>
-		<script>var LINK = "contactusLINK";</script>
+	    <script>var LINK = "contactusLINK";</script>
 
 	';
 

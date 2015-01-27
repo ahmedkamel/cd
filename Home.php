@@ -8,11 +8,11 @@
     {
 	$error_tip = "";
 	$error_message = "";
-	$header = "";
+	
 	if(isset($_SESSION['error_tip']) == true){$error_tip = $_SESSION['error_tip'];}
 	if(isset($_SESSION['error_message']) == true)$error_message = $_SESSION['error_message'];
 
-	$title = "Home";
+	$title = "Coding Door";
 	$content_title = "Under Construction ...";//"Welcome back ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname']."!";
 	$content = '
 	    

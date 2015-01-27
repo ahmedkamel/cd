@@ -1,19 +1,21 @@
 <?php
     session_start();
-    $error_tip = "";
-    $error_message = "";
-    $header = "";
-    if(isset($_SESSION['error_tip']) == 1)$error_tip = $_SESSION['error_tip'];
-    if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
-    
-    $title = "Profile";
-    $content_title = "Profile";
-    $content = '
-     <script>var LINK = "profileLINK";</script>
-    ';
-    
-    $_SESSION['error_tip'] = "";
-    $_SESSION['error_message'] = "";
+    if(isset($_SESSION['user_id']) == false)
+	header("Location: FrontPage.php");
+    else
+    {
+	if(isset($_SESSION['error_tip']) == 1)$error_tip = $_SESSION['error_tip'];
+	if(isset($_SESSION['error_message']) == 1)$error_message = $_SESSION['error_message'];
+
+	$title = $_SESSION['user_firstname'].' '.$_SESSION['user_lastname'];
+	$content_title = $_SESSION['user_firstname'].' '.$_SESSION['user_lastname'];
+	$content = '
+	 <script>var LINK = "profileLINK";</script>
+	';
+
+	$_SESSION['error_tip'] = "";
+	$_SESSION['error_message'] = "";
+    }
     include 'Template/MainTemplate.php';
 ?>
 

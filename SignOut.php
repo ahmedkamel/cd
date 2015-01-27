@@ -4,7 +4,7 @@
     $header = "";
     $error_message = "";
     $error_tip = "";
-    $title = "Sign In";
+    $title = "Logging Out";
     $content_title = "";
     $content = "";
     if(isset($_SESSION['user_id']))

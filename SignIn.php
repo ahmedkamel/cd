@@ -4,7 +4,7 @@
     
     if(isset($_SESSION['user_id']))
     {
-	$_SESSION['error_tip'] = 'You cannot access this page, as you are already logged in!';
+	$_SESSION['error_tip'] = 'You should log in to access this page!';
 	header("Location: Home.php");
     }
     else

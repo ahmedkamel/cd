@@ -10,7 +10,6 @@
     }
     else
     {
-	
 	$error_tip = "";
 	$error_message = "";
 	$header = "";
